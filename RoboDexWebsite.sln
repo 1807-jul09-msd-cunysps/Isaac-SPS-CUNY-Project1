@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboDexWebsite", "RoboDexWebsite\RoboDexWebsite.csproj", "{14926F4A-B8EF-4E5F-8BD8-CC9D9962F124}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboDexWebsite.Tests", "RoboDexWebsite.Tests\RoboDexWebsite.Tests.csproj", "{1626E603-5DBC-4E04-B397-265742D4C935}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14926F4A-B8EF-4E5F-8BD8-CC9D9962F124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14926F4A-B8EF-4E5F-8BD8-CC9D9962F124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14926F4A-B8EF-4E5F-8BD8-CC9D9962F124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14926F4A-B8EF-4E5F-8BD8-CC9D9962F124}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1626E603-5DBC-4E04-B397-265742D4C935}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1626E603-5DBC-4E04-B397-265742D4C935}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1626E603-5DBC-4E04-B397-265742D4C935}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1626E603-5DBC-4E04-B397-265742D4C935}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A46B580C-8A7E-4CA9-B682-A6512FA9CD07}
+	EndGlobalSection
+EndGlobal
