@@ -1,2 +1,20 @@
-﻿@import "variables.scss";
+﻿@import url(https://fonts.googleapis.com/css?family=Lato|Oswald);
+@import "variables.scss";
 @import "../../Content/bootstrap/bootstrap.scss";
+
+body {
+    font-family: Lato;
+}
+
+h1 {
+    font-family: Oswald;
+}
+
+.form-control {
+    background-color: lightgray;
+}
+
+.form-control:focus {
+    background-color: lightcyan;
+    color: black;
+}
