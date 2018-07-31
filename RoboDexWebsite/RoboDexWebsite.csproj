@@ -301,6 +301,7 @@
     <Content Include="Content\Libraries\FormHelper\less\bootstrap-formhelpers.less" />
     <Content Include="Content\Libraries\FormHelper\package.json" />
     <Content Include="Content\Libraries\FormHelper\README.md" />
+    <None Include="Properties\PublishProfiles\RoboDex - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

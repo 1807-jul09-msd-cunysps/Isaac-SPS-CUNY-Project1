@@ -32,14 +32,23 @@ gulp.task("css", ["sass"], function () {
 
 gulp.task("pre-js", function () {
     return gulp.src(
-            [
-            './Scripts/custom/pre.js',
-            './Scripts/jquery-3.3.1.js',
-            './Scripts/bootstrap.js',
-            './Content/Libraries/FormHelper/dist/js/bootstrap-formhelpers.js'
-            ])
+        [
+        './Scripts/custom/pre.js',
+        './Content/Libraries/FormHelper/dist/js/bootstrap-formhelpers.js'
+        ])
         .pipe(concat('main.js'))
         .pipe(gulp.dest('./Scripts/custom/concat/'));
+});
+
+// We don't actually use this file, because we get the JS from a CDN
+gump.task("post-js", function () {
+    return gulp.src(
+        [
+            './Scripts/jquery-3.3.1.js',
+            './Scripts/bootstrap.js'
+        ])
+        .pipe(concat('post.js'))
+        .pipe(gulp.dest('./Scripts/custom/concat'));
 });
 
 gulp.task("form-js", function () {
@@ -52,4 +61,4 @@ gulp.task("form-js", function () {
 });
 
 // Run pre and post js tasks
-gulp.task("js", ["pre-js", "form-js"], function () { });
+gulp.task("js", ["pre-js", "post-js", "form-js"], function () { });
