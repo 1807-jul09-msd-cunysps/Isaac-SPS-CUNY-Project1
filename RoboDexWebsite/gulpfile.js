@@ -41,10 +41,9 @@ gulp.task("pre-js", function () {
 });
 
 // We don't actually use this file, because we get the JS from a CDN
-gump.task("post-js", function () {
+gulp.task("post-js", function () {
     return gulp.src(
         [
-            './Scripts/jquery-3.3.1.js',
             './Scripts/bootstrap.js'
         ])
         .pipe(concat('post.js'))

@@ -72,3 +72,67 @@ function incrementIDs() {
     $("#toAdd #label_city_1").attr("for", "city_1");
     $("#toAdd #label_zip_1").attr("for", "zip_1");
 }
+
+$("input").on("blur", function () {
+    // Require all fields except extension
+    debugger;
+    if ($(this).attr("id") != "ext") {
+        if ($(this).val() == 0) {
+            setInvalid(this);
+        }
+        else {
+            setValid(this);
+        }
+    }
+});
+
+function validate() {
+
+    // Name validation
+    if ($("#firstName") == $("#lastName")) {
+        setInvalid("#firstName");
+        setInvalid("#lastName");
+    }
+    else {
+        setValid("#firstName");
+        setValid("#lastName");
+    }
+
+    // Age validation
+    if ($("#age").val() < 15 || $("#age").val() > 100) {
+        setInvalid("#age");
+    }
+    else {
+        setValid("#age");
+    }
+
+    // ZIP validation
+    var zip = new RegExp("^\d{5}(?:[-\s]\d{4})?$");
+    $("input[id^='zip']").each(function () {
+        if (zip.test($(this).val())) {
+            setValid(this);
+        }
+        else {
+            setInvalid(this);
+        }
+    });
+
+    //Phone validation
+    var phone = new RegExp("/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im");
+    if (phone.test($("#phone").val())) {
+        setValid("#phone");
+    }
+    else {
+        setInvalid("#phone");
+    }
+}
+
+function setValid(ele) {
+    $(ele).removeClass("is-invalid");
+    $(ele).addClass("is-valid");
+}
+
+function setInvalid(ele) {
+    $(ele).removeClass("is-valid");
+    $(ele).addClass("is-invalid");
+}

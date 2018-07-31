@@ -30,8 +30,21 @@ function addAddress() {
 
         document.querySelector("#toAdd").appendChild(newAddress);
 
+        removeValidation("#toAdd input");
+
+        $("#toAdd input").on("blur", function () {
+            require(this);
+        });
+
         incrementIDs();
     }
+}
+
+function removeValidation(ele) {
+    $(ele).each(function () {
+        $(this).removeClass("is-invalid");
+        $(this).removeClass("is-valid");
+    });
 }
 
 function changeSecondaryAddress(newAddress) {
@@ -71,4 +84,77 @@ function incrementIDs() {
     $("#toAdd #label_state_1").attr("for", "state_1");
     $("#toAdd #label_city_1").attr("for", "city_1");
     $("#toAdd #label_zip_1").attr("for", "zip_1");
+}
+
+function require(ele) {
+    if ($(ele).attr("id") != "ext") {
+        if ($(ele).val() == 0) {
+            setInvalid(ele);
+        }
+        else {
+            setValid(ele);
+        }
+    }
+}
+
+$("input:not(#perm)").on("blur", function () {
+    require(this);
+});
+
+// Validate name
+$("#firstName, #lastName").on("blur", function () {
+    if ($(this).val().length == 0) {
+        setInvalid(this);
+    }
+    else if ($("#firstName").val().toUpperCase() == $("#lastName").val().toUpperCase()) {
+        setInvalid("#firstName");
+        setInvalid("#lastName");
+    }
+    else {
+        setValid("#firstName");
+        setValid("#lastName");
+    }
+});
+
+// Validate age
+$("#age").on("blur", function () {
+    if ($(this).val() < 15 || $(this).val() > 100) {
+        setInvalid(this);
+    }
+    else {
+        setValid(this);
+    }
+});
+
+// ZIP validation
+$("input[id^='zip']").on("blur", function () {
+    var zip = new RegExp("^[0-9][0-9][0-9][0-9][0-9]$");
+
+    if (zip.test($(this).val())) {
+        setValid(this);
+    }
+    else {
+        setInvalid(this);
+    }
+});
+
+// Phone validation
+$("#phone").on("blur", function () {
+    var phone = new RegExp("/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im");
+    if (phone.test($(this).val())) {
+        setValid("#phone");
+    }
+    else {
+        setInvalid("#phone");
+    }
+});
+
+function setValid(ele) {
+    $(ele).removeClass("is-invalid");
+    $(ele).addClass("is-valid");
+}
+
+function setInvalid(ele) {
+    $(ele).removeClass("is-valid");
+    $(ele).addClass("is-invalid");
 }
