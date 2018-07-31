@@ -37,6 +37,10 @@ function addAddress() {
         });
 
         incrementIDs();
+
+        $("#country_1, #zip_1").on("blur", function () {
+            updateFromZip(1);
+        });
     }
 }
 
@@ -131,7 +135,7 @@ $("#age").on("blur", function () {
 
 // ZIP validation
 $("input[id^='zip']").on("blur", function () {
-    var zip = new RegExp("^[0-9][0-9][0-9][0-9][0-9]$");
+    var zip = new RegExp("^[0-9]+$");
 
     if (zip.test($(this).val())) {
         setValid(this);
@@ -167,18 +171,26 @@ $("#join-us").on("submit", function (event) {
     console.log($(this).serialize());
 });
 
-function updateFromZip() {
-    let country = $("#country_0").val().toLowerCase();
-    let zip = $("#zip_0").val().toString();
-    let url = "http://api.zippopotam.us/" + country.toLowerCase() + "/" + zip + "/"; 
+$("#country_0, #zip_0").on("blur", function () {
+    updateFromZip(0);
+});
 
-    console.log(url);
+function updateFromZip(num) {
+    let country = $("#country_" + num).val().toLowerCase();
+    let zip = $("#zip_" + num).val().toString();
+    let url = "http://api.zippopotam.us/" + country.toUpperCase() + "/" + zip; 
 
-    $.get({
-        url: url,
-        success: function (response) {
-            console.log(response);
-        }
-    });
+    if (country.length > 0 && zip.length > 1) {
+        $.get({
+            url: url,
+            success: function (response) {
+                $("#city_" + num).val(response.places[0]["place name"]);
+
+                if (country == "US") {
+                    $("#state_" + num).val(response.places[0]["state abbreviation"]);
+                }
+            }
+        });
+    }
 }
 
