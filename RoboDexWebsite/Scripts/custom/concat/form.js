@@ -30,8 +30,24 @@ function addAddress() {
 
         document.querySelector("#toAdd").appendChild(newAddress);
 
+        removeValidationAndValues("#toAdd input");
+
+        $("#toAdd input").on("blur", function () {
+            require(this);
+        });
+
         incrementIDs();
     }
+}
+
+function removeValidationAndValues(ele) {
+    $(ele).each(function () {
+        $(this).removeClass("is-invalid");
+        $(this).removeClass("is-valid");
+        if ($(this).val().length > 0) {
+            $(this).val("");
+        }
+    });
 }
 
 function changeSecondaryAddress(newAddress) {
@@ -73,23 +89,27 @@ function incrementIDs() {
     $("#toAdd #label_zip_1").attr("for", "zip_1");
 }
 
-$("input").on("blur", function () {
-    // Require all fields except extension
-    debugger;
-    if ($(this).attr("id") != "ext") {
-        if ($(this).val() == 0) {
-            setInvalid(this);
+function require(ele) {
+    if ($(ele).attr("id") != "ext") {
+        if ($(ele).val() == 0) {
+            setInvalid(ele);
         }
         else {
-            setValid(this);
+            setValid(ele);
         }
     }
+}
+
+$("input:not(#perm)").on("blur", function () {
+    require(this);
 });
 
-function validate() {
-
-    // Name validation
-    if ($("#firstName") == $("#lastName")) {
+// Validate name
+$("#firstName, #lastName").on("blur", function () {
+    if ($(this).val().length == 0) {
+        setInvalid(this);
+    }
+    else if ($("#firstName").val().toUpperCase() == $("#lastName").val().toUpperCase()) {
         setInvalid("#firstName");
         setInvalid("#lastName");
     }
@@ -97,35 +117,40 @@ function validate() {
         setValid("#firstName");
         setValid("#lastName");
     }
+});
 
-    // Age validation
-    if ($("#age").val() < 15 || $("#age").val() > 100) {
-        setInvalid("#age");
+// Validate age
+$("#age").on("blur", function () {
+    if ($(this).val() < 15 || $(this).val() > 100) {
+        setInvalid(this);
     }
     else {
-        setValid("#age");
+        setValid(this);
     }
+});
 
-    // ZIP validation
-    var zip = new RegExp("^\d{5}(?:[-\s]\d{4})?$");
-    $("input[id^='zip']").each(function () {
-        if (zip.test($(this).val())) {
-            setValid(this);
-        }
-        else {
-            setInvalid(this);
-        }
-    });
+// ZIP validation
+$("input[id^='zip']").on("blur", function () {
+    var zip = new RegExp("^[0-9][0-9][0-9][0-9][0-9]$");
 
-    //Phone validation
+    if (zip.test($(this).val())) {
+        setValid(this);
+    }
+    else {
+        setInvalid(this);
+    }
+});
+
+// Phone validation
+$("#phone").on("blur", function () {
     var phone = new RegExp("/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im");
-    if (phone.test($("#phone").val())) {
+    if (phone.test($(this).val())) {
         setValid("#phone");
     }
     else {
         setInvalid("#phone");
     }
-}
+});
 
 function setValid(ele) {
     $(ele).removeClass("is-invalid");
@@ -136,3 +161,24 @@ function setInvalid(ele) {
     $(ele).removeClass("is-valid");
     $(ele).addClass("is-invalid");
 }
+
+$("#join-us").on("submit", function (event) {
+    event.preventDefault();
+    console.log($(this).serialize());
+});
+
+function updateFromZip() {
+    let country = $("#country_0").val().toLowerCase();
+    let zip = $("#zip_0").val().toString();
+    let url = "http://api.zippopotam.us/" + country.toLowerCase() + "/" + zip + "/"; 
+
+    console.log(url);
+
+    $.get({
+        url: url,
+        success: function (response) {
+            console.log(response);
+        }
+    });
+}
+

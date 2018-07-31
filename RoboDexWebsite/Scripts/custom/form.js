@@ -30,20 +30,27 @@ function addAddress() {
 
         document.querySelector("#toAdd").appendChild(newAddress);
 
-        removeValidation("#toAdd input");
+        removeValidationAndValues("#toAdd input");
 
         $("#toAdd input").on("blur", function () {
             require(this);
         });
 
         incrementIDs();
+
+        $("#country_1, #zip_1").on("blur", function () {
+            updateFromZip(1);
+        });
     }
 }
 
-function removeValidation(ele) {
+function removeValidationAndValues(ele) {
     $(ele).each(function () {
         $(this).removeClass("is-invalid");
         $(this).removeClass("is-valid");
+        if ($(this).val().length > 0) {
+            $(this).val("");
+        }
     });
 }
 
@@ -128,7 +135,7 @@ $("#age").on("blur", function () {
 
 // ZIP validation
 $("input[id^='zip']").on("blur", function () {
-    var zip = new RegExp("^[0-9][0-9][0-9][0-9][0-9]$");
+    var zip = new RegExp("^[0-9]+$");
 
     if (zip.test($(this).val())) {
         setValid(this);
@@ -158,3 +165,32 @@ function setInvalid(ele) {
     $(ele).removeClass("is-valid");
     $(ele).addClass("is-invalid");
 }
+
+$("#join-us").on("submit", function (event) {
+    event.preventDefault();
+    console.log($(this).serialize());
+});
+
+$("#country_0, #zip_0").on("blur", function () {
+    updateFromZip(0);
+});
+
+function updateFromZip(num) {
+    let country = $("#country_" + num).val().toLowerCase();
+    let zip = $("#zip_" + num).val().toString();
+    let url = "http://api.zippopotam.us/" + country.toUpperCase() + "/" + zip; 
+
+    if (country.length > 0 && zip.length > 1) {
+        $.get({
+            url: url,
+            success: function (response) {
+                $("#city_" + num).val(response.places[0]["place name"]);
+
+                if (country == "US") {
+                    $("#state_" + num).val(response.places[0]["state abbreviation"]);
+                }
+            }
+        });
+    }
+}
+
