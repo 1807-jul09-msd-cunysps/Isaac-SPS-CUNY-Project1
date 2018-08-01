@@ -175,6 +175,19 @@ $("#country_0, #zip_0").on("blur", function () {
     updateFromZip(0);
 });
 
+const convertFormToJSON = elements => [].reduce.call(elements, (data, element) => {
+    data[element.name] = element.value;
+    return data;
+}, {});
+
+function serialize() {
+    return convertFormToJSON(document.getElementById("join-us"));
+}
+
+function stringSerialize() {
+    return JSON.stringify(serialize(), null, 2);
+}
+
 function updateFromZip(num) {
     let country = $("#country_" + num).val().toUpperCase();
     let zip = $("#zip_" + num).val().toString();

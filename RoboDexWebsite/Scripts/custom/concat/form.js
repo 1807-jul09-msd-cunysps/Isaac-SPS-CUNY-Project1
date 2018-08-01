@@ -175,8 +175,17 @@ $("#country_0, #zip_0").on("blur", function () {
     updateFromZip(0);
 });
 
+function downloadFormData() {
+    let file = new Blob($(this).serialize(), { "text/json", "text/json"});
+    let link = document.createElement("a");
+    let url = URL.createObjectURL(file);
+    link.download = "data.json";
+    document.body.appendChild(link);
+    link.click();    
+}
+
 function updateFromZip(num) {
-    let country = $("#country_" + num).val().toLowerCase();
+    let country = $("#country_" + num).val().toUpperCase();
     let zip = $("#zip_" + num).val().toString();
     let url = "http://api.zippopotam.us/" + country.toUpperCase() + "/" + zip; 
 
