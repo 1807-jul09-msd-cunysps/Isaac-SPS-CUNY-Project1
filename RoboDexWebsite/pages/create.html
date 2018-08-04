@@ -41,35 +41,35 @@
                             <legend>Personal Info</legend>
                             <div class="row">
                                 <div class="col-6">
-                                    <label for="firstName">
+                                    <label for="FirstName">
                                         First Name
                                     </label>
                                     <div class="input-group">
-                                        <input type="text" id="firstName" name="firstName" class="form-control" />
+                                        <input type="text" id="FirstName" name="FirstName" class="form-control" />
                                         <div class="invalid-feedback">We need a name, and it can't be the same as your last name.</div>
                                     </div>
 
-                                    <label for="lastName">Last Name</label>
+                                    <label for="LastName">Last Name</label>
                                     <div class="input-group">
-                                        <input type="text" id="lastName" name="lastName" class="form-control" />
+                                        <input type="text" id="LastName" name="LastName" class="form-control" />
                                         <div class="invalid-feedback">We need a name, and it can't be the same as your first name.</div>
                                     </div>
                                 </div>
 
                                 <div class="col-6">
-                                    <label for="age">Age</label>
+                                    <label for="Age">Age</label>
                                     <div class="input-group">
-                                        <input type="number" id="age" name="age" min="1" max="200" class="form-control" />
+                                        <input type="number" id="Age" name="Age" min="1" max="200" class="form-control" />
                                         <div class="invalid-feedback">Sorry! We don't like people younger than 15. We especially hate people over 100.</div>
                                     </div>
                                     
 
-                                    <label for="gender">Gender</label>
+                                    <label for="Gender">Gender</label>
                                     <div class="input-group">
-                                        <select class="form-control" id="gender" name="gender">
-                                            <option>Male</option>
-                                            <option>Female</option>
-                                            <option>Other</option>
+                                        <select class="form-control" id="Gender" name="Gender">
+                                            <option value="0">Male</option>
+                                            <option value="1">Female</option>
+                                            <option value="2">Other</option>
                                         </select>
                                         <div class="invalid-feedback">Somehow you didn't choose a gender...pick one please?</div>
                                     </div>
@@ -82,26 +82,26 @@
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <fieldset id="address_0">
+                    <fieldset id="address_0" class="address">
                         <legend>Current Address</legend>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-6">
                                     <label for="address1_0" id="label_address1_0">Address Line 1</label>
                                     <div class="input-group">
-                                        <input type="text" id="address1_0" name="address1_0" class="form-control" />
-                                        <div class="invalid-feedback">We need an address. Just pick somewhere.</div>
+                                        <input type="text" id="address1_0" name="address1_0" class="form-control address1" />
+                                        <div class="invalid-feedback">We need an address. Just pick somewhere. Oh, and include the house number please.</div>
                                     </div>
 
                                     <label for="address2_0" id="label_address2_0">Address Line 2</label>
                                     <div class="input-group">
-                                        <input type="text" id="address2_0" name="address2_0" class="form-control" />
+                                        <input type="text" id="address2_0" name="address2_0" class="form-control address2" />
                                         <div class="invalid-feedback">We only accept people with LOOOONG two-line addresses.</div>
                                     </div>
 
                                     <label for="country_0" id="label_country_0">Country</label>
                                     <div class="input-group">
-                                        <select id="country_0" name="country_0" class="form-control bfh-countries" data-flags="true"></select>
+                                        <select id="country_0" name="country_0" class="form-control bfh-countries country" data-flags="true"></select>
                                         <div class="invalid-feedback">Just pick a country!</div>
                                     </div>
                                     
@@ -109,20 +109,20 @@
                                 <div class="col-6">
                                     <label for="state_0" id="label_state_0">State</label>
                                     <div class="input-group">
-                                        <select id="state_0" name="state_0" class="form-control bfh-states" data-country="US"></select>
+                                        <select id="state_0" name="state_0" class="form-control bfh-states state" data-country="US"></select>
                                         <div class="invalid-feedback">Even if you're not in the USA, you have GOT to pick a state. Just pick your favorite.</div>
                                     </div>
 
                                     <label for="city_0" id="label_city_0">City</label>
                                     <div class="input-group">
-                                        <input type="text" id="city_0" name="city_0" class="form-control">
+                                        <input type="text" id="city_0" name="city_0" class="form-control city">
                                         <div class="invalid-feedback">Wait...you have to tell us what city you live in.</div>
                                     </div>
                                     
 
                                     <label for="zip_0" id="label_zip_0">Zip</label>
                                     <div class="input-group">
-                                        <input type="text" id="zip_0" name="zip_0" class="form-control" />
+                                        <input type="text" id="zip_0" name="zip_0" class="form-control zip" />
                                         <div class="invalid-feedback">That ZIP wasn't in a valid format...</div>
                                     </div>
                                     

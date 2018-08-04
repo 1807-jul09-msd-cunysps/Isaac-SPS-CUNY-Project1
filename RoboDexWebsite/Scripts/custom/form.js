@@ -156,6 +156,13 @@ $("#phone").on("blur", function () {
     }
 });
 
+// Address validation
+$(".address1").on("blur"), function () {
+    if (!$(this).val().includes(" ")) {
+        setInvalid(this);
+    }
+}
+
 function setValid(ele) {
     $(ele).removeClass("is-invalid");
     $(ele).addClass("is-valid");
@@ -175,13 +182,66 @@ $("#country_0, #zip_0").on("blur", function () {
     updateFromZip(0);
 });
 
-const convertFormToJSON = elements => [].reduce.call(elements, (data, element) => {
-    data[element.name] = element.value;
-    return data;
-}, {});
-
 function serialize() {
-    return convertFormToJSON(document.getElementById("join-us"));
+    let jsonData = {
+        FirstName: $("#FirstName").val(),
+        LastName: $("#LastName").val(),
+        GenderID: parseInt($("#Gender").val(), 10),
+        Addresses: [],
+        Phones: [],
+        Emails: []
+    };
+
+    // We make a very naive assumption here that the first space-separted token on
+    // address line 1 is the house number and everything else is the street
+    let houseNum = $("#address1_0").val().split(" ")[0];
+
+    let street = $("#address1_0").val().substring(houseNum.length);
+
+    street += "\n" + $(this).next(".address2").val();
+
+    jsonData.Addresses[0] = {
+        "Street": street,
+        "HouseNum": houseNum,
+        "City": $("#city_0").val(),
+        "Zip": $("#zip_0").val(),
+        "StateCode": $("#state_0").val(),
+        "CountryCode": $("#country_0").val(),
+        "StateCode": $("#state_0").val()
+    };
+
+    if ($("#toAdd").children().length > 0) {
+        houseNum = $("#address1_1").val().split(" ")[0];
+
+        street = $("#address1_1").val().substring(houseNum.length);
+
+        street += "\n" + $(this).next(".address2").val();
+
+        jsonData.Addresses[1] = {
+            "Street": street,
+            "HouseNum": houseNum,
+            "City": $("#city_1").val(),
+            "Zip": $("#zip_1").val(),
+            "StateCode": $("#state_1").val(),
+            "CountryCode": $("#country_1").val(),
+            "StateCode": $("#state_1").val()
+        }
+    }
+
+    //Right now we only allow one phone and one email on this form, even though the data model supports more
+
+    return jsonData;
+}
+
+function getStateCode(twoLetterCode) {
+    if (twoLetterCode.length == 2) {
+        $.get({
+            url: "http://robodex.azurewebsites.net/api/api/State?stateLookup=" + twoLetterCode,
+            success: function (response) {
+                return response;
+            }
+        });
+    }
 }
 
 function stringSerialize() {

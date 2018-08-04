@@ -251,6 +251,7 @@
     <Content Include="Scripts\custom\concat\main.js" />
     <Content Include="Scripts\custom\form.js" />
     <Content Include="Scripts\custom\pre.js" />
+    <Content Include="Scripts\custom\view.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
