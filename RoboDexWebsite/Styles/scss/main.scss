@@ -1,10 +1,10 @@
-﻿@import url(https://fonts.googleapis.com/css?family=Lato|Oswald);
+﻿@import url(https://fonts.googleapis.com/css?family=Lato|Raleway|Oswald);
 @import "variables.scss";
 @import "../../Content/bootstrap/bootstrap.scss";
 
-body {
+/*body {
     font-family: Lato;
-}
+}*/
 
 h1 {
     font-family: Oswald;
@@ -17,4 +17,88 @@ h1 {
 .form-control:focus {
     background-color: lightcyan;
     color: black;
+}
+
+body {
+    font-family: Raleway;
+    font-size: 2em;
+    background-color: #272822;
+    color: #f8f8f2;
+}
+
+nav {
+    font-family: Oswald;
+}
+
+a.button {
+    text-decoration: none;
+    color: #f8f8f2;
+}
+
+.button {
+    width: 20%;
+    background-color: coral;
+    display: inline-block;
+}
+
+.button.active {
+    background-color: cornflowerblue;
+    color: #272822;
+}
+
+.pull-right {
+    float: right;
+}
+
+.label:not(.name) {
+    padding-top: 20px;
+}
+
+.label:before {
+    font-size: 1.2em;
+    color: burlywood;
+    font-family: Oswald;
+    font-weight: 500;
+}
+
+.name:before {
+    content: "Name";
+}
+
+.education:before {
+    content: "Education";
+}
+
+.work-experience:before {
+    content: "Work History";
+}
+
+.personal-info {
+    width: 50%;
+    display: inline-block;
+}
+
+.video {
+    width: 50%;
+    display: inline-block;
+    float: right;
+    height: 400px;
+}
+
+.intro {
+    font-size: 5em;
+    text-align: center;
+    font-weight: 600;
+    margin: 80px;
+}
+
+#content {
+    width: 100%;
+    display: block;
+    min-height: 400px;
+}
+
+footer {
+    height: 142px;
+    text-align: center;
 }
