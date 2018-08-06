@@ -1,12 +1,16 @@
 let count = 0;
 
-var checkbox = document.querySelector("input[name=perm]");
+$(document).ready(function () {
+    var checkbox = document.querySelector("input[name=perm]");
 
-checkbox.addEventListener('change', function () {
-    if (this.checked) {
-        removeAddress();
-    } else {
-        addAddress();
+    if (checkbox) {
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                removeAddress();
+            } else {
+                addAddress();
+            }
+        });
     }
 });
 
@@ -182,13 +186,42 @@ $("#join-us").on("submit", function (event) {
     }
     else {
         $("#invalid-alert").addClass("d-none");
-        sendFormData();
+        sendFormDataToCreateContact();
+    }
+});
+
+$("#contact-us").on("submit", function (event) {
+    event.preventDefault();
+
+    // There are invalid fields
+    if ($(".is-invalid")[0]) {
+        $("#invalid-alert").removeClass("d-none");
+    }
+    else {
+        $("#invalid-alert").addClass("d-none");
+        sendFormDataToStoreMessage();
     }
 });
 
 $("#country_0, #zip_0").on("blur", function () {
     updateFromZip(0);
 });
+
+function serializeMessage() {
+    let jsonData = [
+        {
+            FirstName: $("#FirstName").val(),
+            LastName: $("#LastName").val(),
+            Email: $("#email").val()
+        },
+        {
+            MessageText: $("#message").val()
+            
+        }
+    ];
+
+    return jsonData;
+}
 
 function serialize() {
     let jsonData = {
@@ -252,15 +285,30 @@ function serialize() {
     return jsonData;
 }
 
-function stringSerialize() {
+function stringSerializeContact() {
     return JSON.stringify(serialize(), null, 2);
 }
 
-function sendFormData() {
+function stringSerializeMessage() {
+    return JSON.stringify(serializeMessage(), null, 2);
+}
+
+function sendFormDataToStoreMessage() {
     $.post({
-        url: "http://robodex.azurewebsites.net/api/api/Contact",
+        url: "http://robodex.azurewebserivces.net/api/Message",
         contentType: 'application/json',
-        data: stringSerialize(),
+        data: stringSerializeMessage(),
+        success: function (response) {
+            itWorked(response);
+        }
+    });
+}
+
+function sendFormDataToCreateContact() {
+    $.post({
+        url: "http://robodex.azurewebsites.net/api/Contact",
+        contentType: 'application/json',
+        data: stringSerializeContact(),
         success: function (response) {
             itWorked(response);
         }
