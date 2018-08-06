@@ -306,7 +306,7 @@ function sendFormDataToStoreMessage() {
 
 function sendFormDataToCreateContact() {
     $.post({
-        url: "http://robodex.azurewebsites.net/api/Contact",
+        url: "http://robodex.azurewebservices.net/api/Contact",
         contentType: 'application/json',
         data: stringSerializeContact(),
         success: function (response) {
