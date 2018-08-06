@@ -208,17 +208,12 @@ $("#country_0, #zip_0").on("blur", function () {
 });
 
 function serializeMessage() {
-    let jsonData = [
-        {
-            FirstName: $("#FirstName").val(),
-            LastName: $("#LastName").val(),
-            Email: $("#email").val()
-        },
-        {
-            MessageText: $("#message").val()
-            
-        }
-    ];
+    let jsonData = {
+        FirstName: $("#FirstName").val(),
+        LastName: $("#LastName").val(),
+        MessageText: $("#message").val(),
+        Email: $("#email").val()
+    };
 
     return jsonData;
 }
