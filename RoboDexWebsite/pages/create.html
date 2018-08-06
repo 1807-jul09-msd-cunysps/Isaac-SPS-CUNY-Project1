@@ -45,13 +45,13 @@
                                         First Name
                                     </label>
                                     <div class="input-group">
-                                        <input type="text" id="FirstName" name="FirstName" class="form-control" />
+                                        <input required autofocus type="text" id="FirstName" name="FirstName" class="form-control" />
                                         <div class="invalid-feedback">We need a name, and it can't be the same as your last name.</div>
                                     </div>
 
                                     <label for="LastName">Last Name</label>
                                     <div class="input-group">
-                                        <input type="text" id="LastName" name="LastName" class="form-control" />
+                                        <input required type="text" id="LastName" name="LastName" class="form-control" />
                                         <div class="invalid-feedback">We need a name, and it can't be the same as your first name.</div>
                                     </div>
                                 </div>
@@ -59,14 +59,15 @@
                                 <div class="col-6">
                                     <label for="Age">Age</label>
                                     <div class="input-group">
-                                        <input type="number" id="Age" name="Age" min="1" max="200" class="form-control" />
+                                        <input required type="number" id="Age" name="Age" min="1" max="200" class="form-control" />
                                         <div class="invalid-feedback">Sorry! We don't like people younger than 15. We especially hate people over 100.</div>
                                     </div>
                                     
 
                                     <label for="Gender">Gender</label>
                                     <div class="input-group">
-                                        <select class="form-control" id="Gender" name="Gender">
+                                        <select required class="form-control" id="Gender" name="Gender">
+                                            <option value=""></option>
                                             <option value="0">Male</option>
                                             <option value="1">Female</option>
                                             <option value="2">Other</option>
@@ -89,19 +90,267 @@
                                 <div class="col-6">
                                     <label for="address1_0" id="label_address1_0">Address Line 1</label>
                                     <div class="input-group">
-                                        <input type="text" id="address1_0" name="address1_0" class="form-control address1" />
+                                        <input type="text" required id="address1_0" name="address1_0" class="form-control address1" />
                                         <div class="invalid-feedback">We need an address. Just pick somewhere. Oh, and include the house number please.</div>
                                     </div>
 
                                     <label for="address2_0" id="label_address2_0">Address Line 2</label>
                                     <div class="input-group">
-                                        <input type="text" id="address2_0" name="address2_0" class="form-control address2" />
+                                        <input type="text" required id="address2_0" name="address2_0" class="form-control address2" />
                                         <div class="invalid-feedback">We only accept people with LOOOONG two-line addresses.</div>
                                     </div>
 
                                     <label for="country_0" id="label_country_0">Country</label>
                                     <div class="input-group">
-                                        <select id="country_0" name="country_0" class="form-control bfh-countries country" data-flags="true"></select>
+                                        <select id="country_0" required name="country_0" class="form-control country">
+                                            <option value=""></option>
+                                            <option value='4' data-code='AF'>Afghanistan</option>
+                                            <option value='8' data-code='AL'>Albania</option>
+                                            <option value='12' data-code='DZ'>Algeria</option>
+                                            <option value='16' data-code='AS'>American Samoa</option>
+                                            <option value='20' data-code='AD'>Andorra</option>
+                                            <option value='24' data-code='AO'>Angola</option>
+                                            <option value='660' data-code='AI'>Anguilla</option>
+                                            <option value='10' data-code='AQ'>Antarctica</option>
+                                            <option value='28' data-code='AG'>Antigua and Barbuda</option>
+                                            <option value='32' data-code='AR'>Argentina</option>
+                                            <option value='51' data-code='AM'>Armenia</option>
+                                            <option value='533' data-code='AW'>Aruba</option>
+                                            <option value='36' data-code='AU'>Australia</option>
+                                            <option value='40' data-code='AT'>Austria</option>
+                                            <option value='31' data-code='AZ'>Azerbaijan</option>
+                                            <option value='44' data-code='BS'>Bahamas</option>
+                                            <option value='48' data-code='BH'>Bahrain</option>
+                                            <option value='50' data-code='BD'>Bangladesh</option>
+                                            <option value='52' data-code='BB'>Barbados</option>
+                                            <option value='112' data-code='BY'>Belarus</option>
+                                            <option value='56' data-code='BE'>Belgium</option>
+                                            <option value='84' data-code='BZ'>Belize</option>
+                                            <option value='204' data-code='BJ'>Benin</option>
+                                            <option value='60' data-code='BM'>Bermuda</option>
+                                            <option value='64' data-code='BT'>Bhutan</option>
+                                            <option value='68' data-code='BO'>Bolivia</option>
+                                            <option value='70' data-code='BA'>Bosnia and Herzegovina</option>
+                                            <option value='72' data-code='BW'>Botswana</option>
+                                            <option value='74' data-code='BV'>Bouvet Island</option>
+                                            <option value='76' data-code='BR'>Brazil</option>
+                                            <option value='92' data-code='VG'>British Virgin Islands</option>
+                                            <option value='86' data-code='IO'>British Indian Ocean Territory</option>
+                                            <option value='96' data-code='BN'>Brunei Darussalam</option>
+                                            <option value='100' data-code='BG'>Bulgaria</option>
+                                            <option value='854' data-code='BF'>Burkina Faso</option>
+                                            <option value='108' data-code='BI'>Burundi</option>
+                                            <option value='116' data-code='KH'>Cambodia</option>
+                                            <option value='120' data-code='CM'>Cameroon</option>
+                                            <option value='124' data-code='CA'>Canada</option>
+                                            <option value='132' data-code='CV'>Cape Verde</option>
+                                            <option value='136' data-code='KY'>Cayman Islands</option>
+                                            <option value='140' data-code='CF'>Central African Republic</option>
+                                            <option value='148' data-code='TD'>Chad</option>
+                                            <option value='152' data-code='CL'>Chile</option>
+                                            <option value='156' data-code='CN'>China</option>
+                                            <option value='344' data-code='HK'>Hong Kong, SAR China</option>
+                                            <option value='446' data-code='MO'>Macao, SAR China</option>
+                                            <option value='162' data-code='CX'>Christmas Island</option>
+                                            <option value='166' data-code='CC'>Cocos Islands</option>
+                                            <option value='170' data-code='CO'>Colombia</option>
+                                            <option value='174' data-code='KM'>Comoros</option>
+                                            <option value='178' data-code='CG'>Republic of the Congo</option>
+                                            <option value='180' data-code='CD'>Democratic Republic of the Congo</option>
+                                            <option value='184' data-code='CK'>Cook Islands</option>
+                                            <option value='188' data-code='CR'>Costa Rica</option>
+                                            <option value='384' data-code='CI'>Ivory Coast</option>
+                                            <option value='191' data-code='HR'>Croatia</option>
+                                            <option value='192' data-code='CU'>Cuba</option>
+                                            <option value='196' data-code='CY'>Cyprus</option>
+                                            <option value='203' data-code='CZ'>Czech Republic</option>
+                                            <option value='208' data-code='DK'>Denmark</option>
+                                            <option value='262' data-code='DJ'>Djibouti</option>
+                                            <option value='212' data-code='DM'>Dominica</option>
+                                            <option value='214' data-code='DO'>Dominican Republic</option>
+                                            <option value='218' data-code='EC'>Ecuador</option>
+                                            <option value='818' data-code='EG'>Egypt</option>
+                                            <option value='222' data-code='SV'>El Salvador</option>
+                                            <option value='226' data-code='GQ'>Equatorial Guinea</option>
+                                            <option value='232' data-code='ER'>Eritrea</option>
+                                            <option value='233' data-code='EE'>Estonia</option>
+                                            <option value='231' data-code='ET'>Ethiopia</option>
+                                            <option value='238' data-code='FK'>Falkland Islands</option>
+                                            <option value='234' data-code='FO'>Faroe Islands</option>
+                                            <option value='242' data-code='FJ'>Fiji</option>
+                                            <option value='246' data-code='FI'>Finland</option>
+                                            <option value='250' data-code='FR'>France</option>
+                                            <option value='254' data-code='GF'>French Guiana</option>
+                                            <option value='258' data-code='PF'>French Polynesia</option>
+                                            <option value='260' data-code='TF'>French Southern Territories</option>
+                                            <option value='266' data-code='GA'>Gabon</option>
+                                            <option value='270' data-code='GM'>Gambia</option>
+                                            <option value='268' data-code='GE'>Georgia</option>
+                                            <option value='276' data-code='DE'>Germany</option>
+                                            <option value='288' data-code='GH'>Ghana</option>
+                                            <option value='292' data-code='GI'>Gibraltar</option>
+                                            <option value='300' data-code='GR'>Greece</option>
+                                            <option value='304' data-code='GL'>Greenland</option>
+                                            <option value='308' data-code='GD'>Grenada</option>
+                                            <option value='312' data-code='GP'>Guadeloupe</option>
+                                            <option value='316' data-code='GU'>Guam</option>
+                                            <option value='320' data-code='GT'>Guatemala</option>
+                                            <option value='831' data-code='GG'>Guernsey</option>
+                                            <option value='324' data-code='GN'>Guinea</option>
+                                            <option value='624' data-code='GW'>Guinea-Bissau</option>
+                                            <option value='328' data-code='GY'>Guyana</option>
+                                            <option value='332' data-code='HT'>Haiti</option>
+                                            <option value='334' data-code='HM'>Heard and Mcdonald Islands</option>
+                                            <option value='336' data-code='VA'>Vatican</option>
+                                            <option value='340' data-code='HN'>Honduras</option>
+                                            <option value='348' data-code='HU'>Hungary</option>
+                                            <option value='352' data-code='IS'>Iceland</option>
+                                            <option value='356' data-code='IN'>India</option>
+                                            <option value='360' data-code='ID'>Indonesia</option>
+                                            <option value='364' data-code='IR'>Iran</option>
+                                            <option value='368' data-code='IQ'>Iraq</option>
+                                            <option value='372' data-code='IE'>Ireland</option>
+                                            <option value='833' data-code='IM'>Isle of Man</option>
+                                            <option value='376' data-code='IL'>Israel</option>
+                                            <option value='380' data-code='IT'>Italy</option>
+                                            <option value='388' data-code='JM'>Jamaica</option>
+                                            <option value='392' data-code='JP'>Japan</option>
+                                            <option value='832' data-code='JE'>Jersey</option>
+                                            <option value='400' data-code='JO'>Jordan</option>
+                                            <option value='398' data-code='KZ'>Kazakhstan</option>
+                                            <option value='404' data-code='KE'>Kenya</option>
+                                            <option value='296' data-code='KI'>Kiribati</option>
+                                            <option value='408' data-code='KP'>North Korea</option>
+                                            <option value='410' data-code='KR'>South Korea</option>
+                                            <option value='414' data-code='KW'>Kuwait</option>
+                                            <option value='417' data-code='KG'>Kyrgyzstan</option>
+                                            <option value='418' data-code='LA'>Laos</option>
+                                            <option value='428' data-code='LV'>Latvia</option>
+                                            <option value='422' data-code='LB'>Lebanon</option>
+                                            <option value='426' data-code='LS'>Lesotho</option>
+                                            <option value='430' data-code='LR'>Liberia</option>
+                                            <option value='434' data-code='LY'>Libya</option>
+                                            <option value='438' data-code='LI'>Liechtenstein</option>
+                                            <option value='440' data-code='LT'>Lithuania</option>
+                                            <option value='442' data-code='LU'>Luxembourg</option>
+                                            <option value='807' data-code='MK'>Macedonia</option>
+                                            <option value='450' data-code='MG'>Madagascar</option>
+                                            <option value='454' data-code='MW'>Malawi</option>
+                                            <option value='458' data-code='MY'>Malaysia</option>
+                                            <option value='462' data-code='MV'>Maldives</option>
+                                            <option value='466' data-code='ML'>Mali</option>
+                                            <option value='470' data-code='MT'>Malta</option>
+                                            <option value='584' data-code='MH'>Marshall Islands</option>
+                                            <option value='474' data-code='MQ'>Martinique</option>
+                                            <option value='478' data-code='MR'>Mauritania</option>
+                                            <option value='480' data-code='MU'>Mauritius</option>
+                                            <option value='175' data-code='YT'>Mayotte</option>
+                                            <option value='484' data-code='MX'>Mexico</option>
+                                            <option value='583' data-code='FM'>Micronesia</option>
+                                            <option value='498' data-code='MD'>Moldova</option>
+                                            <option value='492' data-code='MC'>Monaco</option>
+                                            <option value='496' data-code='MN'>Mongolia</option>
+                                            <option value='499' data-code='ME'>Montenegro</option>
+                                            <option value='500' data-code='MS'>Montserrat</option>
+                                            <option value='504' data-code='MA'>Morocco</option>
+                                            <option value='508' data-code='MZ'>Mozambique</option>
+                                            <option value='104' data-code='MM'>Myanmar</option>
+                                            <option value='516' data-code='NA'>Namibia</option>
+                                            <option value='520' data-code='NR'>Nauru</option>
+                                            <option value='524' data-code='NP'>Nepal</option>
+                                            <option value='528' data-code='NL'>Netherlands</option>
+                                            <option value='530' data-code='AN'>Netherlands Antilles</option>
+                                            <option value='540' data-code='NC'>New Caledonia</option>
+                                            <option value='554' data-code='NZ'>New Zealand</option>
+                                            <option value='558' data-code='NI'>Nicaragua</option>
+                                            <option value='562' data-code='NE'>Niger</option>
+                                            <option value='566' data-code='NG'>Nigeria</option>
+                                            <option value='570' data-code='NU'>Niue</option>
+                                            <option value='574' data-code='NF'>Norfolk Island</option>
+                                            <option value='580' data-code='MP'>Northern Mariana Islands</option>
+                                            <option value='578' data-code='NO'>Norway</option>
+                                            <option value='512' data-code='OM'>Oman</option>
+                                            <option value='586' data-code='PK'>Pakistan</option>
+                                            <option value='585' data-code='PW'>Palau</option>
+                                            <option value='275' data-code='PS'>Palestine</option>
+                                            <option value='591' data-code='PA'>Panama</option>
+                                            <option value='598' data-code='PG'>Papua New Guinea</option>
+                                            <option value='600' data-code='PY'>Paraguay</option>
+                                            <option value='604' data-code='PE'>Peru</option>
+                                            <option value='608' data-code='PH'>Philippines</option>
+                                            <option value='612' data-code='PN'>Pitcairn</option>
+                                            <option value='616' data-code='PL'>Poland</option>
+                                            <option value='620' data-code='PT'>Portugal</option>
+                                            <option value='630' data-code='PR'>Puerto Rico</option>
+                                            <option value='634' data-code='QA'>Qatar</option>
+                                            <option value='638' data-code='RE'>Réunion</option>
+                                            <option value='642' data-code='RO'>Romania</option>
+                                            <option value='643' data-code='RU'>Russia</option>
+                                            <option value='646' data-code='RW'>Rwanda</option>
+                                            <option value='652' data-code='BL'>Saint Barthelemy</option>
+                                            <option value='654' data-code='SH'>Saint Helena</option>
+                                            <option value='659' data-code='KN'>Saint Kitts and Nevis</option>
+                                            <option value='662' data-code='LC'>Saint Lucia</option>
+                                            <option value='663' data-code='MF'>Saint Martin</option>
+                                            <option value='666' data-code='PM'>Saint Pierre and Miquelon</option>
+                                            <option value='670' data-code='VC'>Saint Vincent and Grenadines</option>
+                                            <option value='882' data-code='WS'>Samoa</option>
+                                            <option value='674' data-code='SM'>San Marino</option>
+                                            <option value='678' data-code='ST'>Sao Tome and Principe</option>
+                                            <option value='682' data-code='SA'>Saudi Arabia</option>
+                                            <option value='686' data-code='SN'>Senegal</option>
+                                            <option value='688' data-code='RS'>Serbia</option>
+                                            <option value='690' data-code='SC'>Seychelles</option>
+                                            <option value='694' data-code='SL'>Sierra Leone</option>
+                                            <option value='702' data-code='SG'>Singapore</option>
+                                            <option value='703' data-code='SK'>Slovakia</option>
+                                            <option value='705' data-code='SI'>Slovenia</option>
+                                            <option value='90' data-code='SB'>Solomon Islands</option>
+                                            <option value='706' data-code='SO'>Somalia</option>
+                                            <option value='710' data-code='ZA'>South Africa</option>
+                                            <option value='239' data-code='GS'>South Georgia and the South Sandwich Islands</option>
+                                            <option value='728' data-code='SS'>South Sudan</option>
+                                            <option value='724' data-code='ES'>Spain</option>
+                                            <option value='144' data-code='LK'>Sri Lanka</option>
+                                            <option value='736' data-code='SD'>Sudan</option>
+                                            <option value='740' data-code='SR'>Suriname</option>
+                                            <option value='744' data-code='SJ'>Svalbard and Jan Mayen Islands</option>
+                                            <option value='748' data-code='SZ'>Swaziland</option>
+                                            <option value='752' data-code='SE'>Sweden</option>
+                                            <option value='756' data-code='CH'>Switzerland</option>
+                                            <option value='760' data-code='SY'>Syria</option>
+                                            <option value='158' data-code='TW'>Taiwan</option>
+                                            <option value='762' data-code='TJ'>Tajikistan</option>
+                                            <option value='834' data-code='TZ'>Tanzania</option>
+                                            <option value='764' data-code='TH'>Thailand</option>
+                                            <option value='626' data-code='TL'>Timor Leste</option>
+                                            <option value='768' data-code='TG'>Togo</option>
+                                            <option value='772' data-code='TK'>Tokelau</option>
+                                            <option value='776' data-code='TO'>Tonga</option>
+                                            <option value='780' data-code='TT'>Trinidad and Tobago</option>
+                                            <option value='788' data-code='TN'>Tunisia</option>
+                                            <option value='792' data-code='TR'>Turkey</option>
+                                            <option value='795' data-code='TM'>Turkmenistan</option>
+                                            <option value='796' data-code='TC'>Turks and Caicos Islands</option>
+                                            <option value='798' data-code='TV'>Tuvalu</option>
+                                            <option value='800' data-code='UG'>Uganda</option>
+                                            <option value='804' data-code='UA'>Ukraine</option>
+                                            <option value='784' data-code='AE'>United Arab Emirates</option>
+                                            <option value='826' data-code='GB'>United Kingdom</option>
+                                            <option value='840' data-code='US'>United States of America</option>
+                                            <option value='581' data-code='UM'>US Minor Outlying Islands</option>
+                                            <option value='858' data-code='UY'>Uruguay</option>
+                                            <option value='860' data-code='UZ'>Uzbekistan</option>
+                                            <option value='548' data-code='VU'>Vanuatu</option>
+                                            <option value='862' data-code='VE'>Venezuela</option>
+                                            <option value='704' data-code='VN'>Vietnam</option>
+                                            <option value='850' data-code='VI'>Virgin Islands</option>
+                                            <option value='876' data-code='WF'>Wallis and Futuna Islands</option>
+                                            <option value='732' data-code='EH'>Western Sahara</option>
+                                            <option value='887' data-code='YE'>Yemen</option>
+                                            <option value='894' data-code='ZM'>Zambia</option>
+                                            <option value='716' data-code='ZW'>Zimbabwe</option>
+                                        </select>
                                         <div class="invalid-feedback">Just pick a country!</div>
                                     </div>
                                     
@@ -109,20 +358,20 @@
                                 <div class="col-6">
                                     <label for="state_0" id="label_state_0">State</label>
                                     <div class="input-group">
-                                        <select id="state_0" name="state_0" class="form-control bfh-states state" data-country="US"></select>
+                                        <select id="state_0" required name="state_0" class="form-control bfh-states state" data-country="US"></select>
                                         <div class="invalid-feedback">Even if you're not in the USA, you have GOT to pick a state. Just pick your favorite.</div>
                                     </div>
 
                                     <label for="city_0" id="label_city_0">City</label>
                                     <div class="input-group">
-                                        <input type="text" id="city_0" name="city_0" class="form-control city">
+                                        <input type="text" required id="city_0" name="city_0" class="form-control city">
                                         <div class="invalid-feedback">Wait...you have to tell us what city you live in.</div>
                                     </div>
                                     
 
                                     <label for="zip_0" id="label_zip_0">Zip</label>
                                     <div class="input-group">
-                                        <input type="text" id="zip_0" name="zip_0" class="form-control zip" />
+                                        <input type="text" required id="zip_0" name="zip_0" class="form-control zip" />
                                         <div class="invalid-feedback">That ZIP wasn't in a valid format...</div>
                                     </div>
                                     
@@ -153,7 +402,7 @@
                                 <div class="col-2">
                                     <label for="country-code">Code</label>
                                     <div class="input-group">
-                                        <input type="number" id="country-code" name="country-code" class="form-control">
+                                        <input type="number" required id="country-code" name="country-code" class="form-control">
                                         <div class="invalid-feedback">Gimme the country code!</div>
                                     </div>
                                 </div>
@@ -161,16 +410,16 @@
                                 <div class="col-3">
                                     <label for="area-code">Area Code</label>
                                     <div class="input-group">
-                                        <input type="text" id="area-code" name="area-code" class="form-control" />
+                                        <input type="text" required id="area-code" name="area-code" class="form-control" />
                                         <div class="invalid-feedback">Ludacris wants your area code for his collection.</div>
                                     </div>
                                     
                                 </div>
 
                                 <div class="col-4">
-                                    <label for="phone">Phone</label>
+                                    <label for="phoneNum">Phone</label>
                                     <div class="input-group">
-                                        <input type="tel" id="phoneNum" name="phoneNum" class="form-control" />
+                                        <input type="tel" required id="phoneNum" name="phoneNum" class="form-control" />
                                         <div class="invalid-feedback">Can I get your digits?</div>
                                     </div>
                                     
@@ -179,7 +428,7 @@
                                 <div class="col-3">
                                     <label for="ext">Extension</label>
                                     <div class="input-group">
-                                        <input type="text" id="ext" name="ext" class="form-control" />
+                                        <input type="text" required id="ext" name="ext" class="form-control" />
                                         <div class="invalid-feedback">I wanna call you at work...</div>
                                     </div>
                                     
@@ -188,7 +437,7 @@
 
                             <label for="email">Email</label>
                             <div class="input-group">
-                                <input type="email" id="email" name="email" class="form-control" />
+                                <input type="email" required id="email" name="email" class="form-control" />
                                 <div class="invalid-feedback">I need to be able to send you spam!</div>
                             </div>
                             
@@ -198,6 +447,11 @@
             </div>
             <div class="row">
                 <div class="col">
+                    <div class="alert alert-danger d-none" id="invalid-alert" role="alert">
+                        One or more fields are invalid! Fix them. Please.
+                    </div>
+                    <div class="alert alert-success d-none" id="success-alert" role="alert">
+                    </div>
                     <button type="submit" class="btn btn-block btn-secondary">Submit</button>
                 </div>
             </div>

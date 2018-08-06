@@ -109,22 +109,22 @@ $("input:not(#perm)").on("blur", function () {
 });
 
 // Validate name
-$("#firstName, #lastName").on("blur", function () {
+$("#FirstName, #LastName").on("blur", function () {
     if ($(this).val().length == 0) {
         setInvalid(this);
     }
-    else if ($("#firstName").val().toUpperCase() == $("#lastName").val().toUpperCase()) {
-        setInvalid("#firstName");
-        setInvalid("#lastName");
+    else if ($("#FirstName").val().toUpperCase() == $("#LastName").val().toUpperCase()) {
+        setInvalid("#FirstName");
+        setInvalid("#LastName");
     }
     else {
-        setValid("#firstName");
-        setValid("#lastName");
+        setValid("#FirstName");
+        setValid("#LastName");
     }
 });
 
 // Validate age
-$("#age").on("blur", function () {
+$("#Age").on("blur", function () {
     if ($(this).val() < 15 || $(this).val() > 100) {
         setInvalid(this);
     }
@@ -146,13 +146,13 @@ $("input[id^='zip']").on("blur", function () {
 });
 
 // Phone validation
-$("#phone").on("blur", function () {
-    var phone = new RegExp("/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im");
+$("#phoneNum").on("blur", function () {
+    var phone = new RegExp("^[0-9]{2,15}$");
     if (phone.test($(this).val())) {
-        setValid("#phone");
+        setValid("#phoneNum");
     }
     else {
-        setInvalid("#phone");
+        setInvalid("#phoneNum");
     }
 });
 
@@ -175,7 +175,15 @@ function setInvalid(ele) {
 
 $("#join-us").on("submit", function (event) {
     event.preventDefault();
-    console.log($(this).serialize());
+
+    // There are invalid fields
+    if ($(".is-invalid")[0]) {
+        $("#invalid-alert").removeClass("d-none");
+    }
+    else {
+        $("#invalid-alert").addClass("d-none");
+        sendFormData();
+    }
 });
 
 $("#country_0, #zip_0").on("blur", function () {
@@ -196,9 +204,9 @@ function serialize() {
     // address line 1 is the house number and everything else is the street
     let houseNum = $("#address1_0").val().split(" ")[0];
 
-    let street = $("#address1_0").val().substring(houseNum.length);
+    let street = $("#address1_0").val().substring(houseNum.length + 1);
 
-    street += "\n" + $(this).next(".address2").val();
+    street += "\n" + $("#address2_0").val();
 
     jsonData.Addresses[0] = {
         "Street": street,
@@ -215,7 +223,7 @@ function serialize() {
 
         street = $("#address1_1").val().substring(houseNum.length);
 
-        street += "\n" + $(this).next(".address2").val();
+        street += "\n" + $("#address2_1").val();
 
         jsonData.Addresses[1] = {
             "Street": street,
@@ -225,31 +233,48 @@ function serialize() {
             "StateCode": $("#state_1").val(),
             "CountryCode": $("#country_1").val(),
             "StateCode": $("#state_1").val()
-        }
+        };
     }
 
     //Right now we only allow one phone and one email on this form, even though the data model supports more
 
-    return jsonData;
-}
+    jsonData.Phones[0] = {
+        "CountryCode": $("#country-code").val(),
+        "AreaCode": $("#area-code").val(),
+        "Number": $("#phoneNum").val(),
+        "Extension": $("#ext").val()
+    };
 
-function getStateCode(twoLetterCode) {
-    if (twoLetterCode.length == 2) {
-        $.get({
-            url: "http://robodex.azurewebsites.net/api/api/State?stateLookup=" + twoLetterCode,
-            success: function (response) {
-                return response;
-            }
-        });
-    }
+    jsonData.Emails[0] = {
+        "EmailAddress": $("#email").val()
+    };
+
+    return jsonData;
 }
 
 function stringSerialize() {
     return JSON.stringify(serialize(), null, 2);
 }
 
+function sendFormData() {
+    $.post({
+        url: "http://robodex.azurewebsites.net/api/api/Contact",
+        contentType: 'application/json',
+        data: stringSerialize(),
+        success: function (response) {
+            itWorked(response);
+        }
+    });
+}
+
+function itWorked(response) {
+    $("#invalid-alert").addClass("d-none");
+    $("#success-alert").text('It worked! Created ' + $("#FirstName").val() + "!");
+    $("#success-alert").removeClass("d-none");
+}
+
 function updateFromZip(num) {
-    let country = $("#country_" + num).val().toUpperCase();
+    let country = $("#country_" + num + " option:selected").data("code");
     let zip = $("#zip_" + num).val().toString();
     let url = "http://api.zippopotam.us/" + country.toUpperCase() + "/" + zip; 
 
@@ -258,9 +283,11 @@ function updateFromZip(num) {
             url: url,
             success: function (response) {
                 $("#city_" + num).val(response.places[0]["place name"]);
+                if ($("#city_" + num).val()) { setValid("#city_" + num); }
 
                 if (country == "US") {
                     $("#state_" + num).val(response.places[0]["state abbreviation"]);
+                    setValid("#state_" + num);
                 }
             }
         });
