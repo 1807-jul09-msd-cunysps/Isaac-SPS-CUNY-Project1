@@ -290,7 +290,7 @@ function stringSerializeMessage() {
 
 function sendFormDataToStoreMessage() {
     $.post({
-        url: "http://localhost:52122/Message",
+        url: "http://robodex.azurewebsites.net/api/Message",
         contentType: 'application/json',
         data: stringSerializeMessage(),
         success: function (response) {
