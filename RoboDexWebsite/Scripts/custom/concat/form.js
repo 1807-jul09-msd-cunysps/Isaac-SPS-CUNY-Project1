@@ -294,7 +294,7 @@ function sendFormDataToStoreMessage() {
         contentType: 'application/json',
         data: stringSerializeMessage(),
         success: function (response) {
-            itWorked(response);
+            messageSent(response);
         }
     });
 }
@@ -305,7 +305,7 @@ function sendFormDataToCreateContact() {
         contentType: 'application/json',
         data: stringSerializeContact(),
         success: function (response) {
-            messageSent(response);
+            itWorked(response);
         }
     });
 }
