@@ -153,6 +153,7 @@
     <Content Include="Content\Libraries\FormHelper\js\tests\vendor\js\qunit-1.12.0.js" />
     <Content Include="Content\Libraries\FormHelper\karma.conf.js" />
     <Content Include="gulpfile.js" />
+    <Content Include="pages\contact.html" />
     <Content Include="pages\create.html" />
     <Content Include="pages\view.html" />
     <Content Include="pages\dashboard.html" />
