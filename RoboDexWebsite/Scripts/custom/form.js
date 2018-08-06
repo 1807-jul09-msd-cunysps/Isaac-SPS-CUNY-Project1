@@ -310,7 +310,7 @@ function sendFormDataToCreateContact() {
         contentType: 'application/json',
         data: stringSerializeContact(),
         success: function (response) {
-            itWorked(response);
+            messageSent(response);
         }
     });
 }
@@ -318,6 +318,12 @@ function sendFormDataToCreateContact() {
 function itWorked(response) {
     $("#invalid-alert").addClass("d-none");
     $("#success-alert").text('It worked! Created ' + $("#FirstName").val() + "!");
+    $("#success-alert").removeClass("d-none");
+}
+
+function messageSent(response) {
+    $("#invalid-alert").addClass("d-none");
+    $("#success-alert").text('Message Sent!');
     $("#success-alert").removeClass("d-none");
 }
 
