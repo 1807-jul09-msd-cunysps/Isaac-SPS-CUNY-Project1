@@ -4,39 +4,85 @@
 
 
 
-body {
-    font-family: Lato;
+body.dark {
     background-color: $dark;
     color: $white;
+
+    .card {
+        background-color: $blue;
+        color: $dark;
+        opacity: .75;
+    }
+
+    .card-body {
+        color: $white;
+    }
+
+    #theme {
+        background-color: $blue;
+        color: $white;
+        transition: all .7s ease;
+    }
+
+    #theme:hover {
+        opacity: .7;
+        color: lightgray;
+    }
 }
 
-.card-header {
-    font-family: Oswald;
-    font-size: 2em;
+body.light {
+    #theme {
+        background-color: $white;
+        color: $dark;
+        transition: all .7s ease;
+    }
+
+    #theme:hover {
+        background-color: darkgrey;
+    }
 }
 
-.card {
-    background-color: $blue;
-    color: $dark;
-    opacity: .75;
-    margin: 10px 10px;
-    transition: all ease .5s;
-}
+body {
+    font-family: Lato;
+    transition: all ease 1s;
 
-.card-body {
-    color: $white;
-    font-weight: 200;
-    font-family: Raleway;
-}
+    #theme:hover {
+        transform: scale(1.05);
+    }
 
-.name {
-    margin-bottom: 30px;
-}
+    .nav-link {
+        transition: all ease .5s;
+    }
 
-.personal-info {
-    margin-top: 20%;
-}
+    .nav-link:hover {
+        font-size: 1.05em;
+    }
 
-h1.welcome {
-    margin-top: 30%;
+    .card-header {
+        font-family: Oswald;
+        font-size: 2em;
+    }
+
+    .card {
+        opacity: .75;
+        margin: 10px 10px;
+        transition: all ease .5s;
+    }
+
+    .card-body {
+        font-weight: 200;
+        font-family: Raleway;
+    }
+
+    .name {
+        margin-bottom: 30px;
+    }
+
+    .personal-info {
+        margin-top: 20%;
+    }
+
+    h1.welcome {
+        margin-top: 30%;
+    }
 }

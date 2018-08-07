@@ -1,4 +1,7 @@
-
+$("#theme").on("click", function () {
+    $("body").toggleClass("dark");
+    $("body").toggleClass("light");
+});
 /**
 * bootstrap-formhelpers.js v2.3.0 by @vincentlamanna
 * Copyright 2013 Vincent Lamanna
