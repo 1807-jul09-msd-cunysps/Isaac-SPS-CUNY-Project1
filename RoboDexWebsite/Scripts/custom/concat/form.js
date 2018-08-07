@@ -25,7 +25,7 @@ function removeAddress() {
 function addAddress() {
     let toggle = document.querySelector("#perm");
 
-    if (toggle.checked == false) {
+    if (toggle.checked === false) {
         let origAddress = document.querySelector("#address_0");
 
         let newAddress = origAddress.cloneNode(true);
@@ -98,8 +98,8 @@ function incrementIDs() {
 }
 
 function require(ele) {
-    if ($(ele).attr("id") != "ext") {
-        if ($(ele).val() == 0) {
+    if ($(ele).attr("id") !== "ext") {
+        if ($(ele).val() === 0 || $(ele).val() === "" || $(ele).val().length === 0) {
             setInvalid(ele);
         }
         else {
@@ -114,10 +114,10 @@ $("input:not(#perm)").on("blur", function () {
 
 // Validate name
 $("#FirstName, #LastName").on("blur", function () {
-    if ($(this).val().length == 0) {
+    if ($(this).val().length === 0) {
         setInvalid(this);
     }
-    else if ($("#FirstName").val().toUpperCase() == $("#LastName").val().toUpperCase()) {
+    else if ($("#FirstName").val().toUpperCase() === $("#LastName").val().toUpperCase()) {
         setInvalid("#FirstName");
         setInvalid("#LastName");
     }
@@ -165,7 +165,7 @@ $(".address1").on("blur"), function () {
     if (!$(this).val().includes(" ")) {
         setInvalid(this);
     }
-}
+};
 
 function setValid(ele) {
     $(ele).removeClass("is-invalid");
@@ -242,8 +242,7 @@ function serialize() {
         "City": $("#city_0").val(),
         "Zip": $("#zip_0").val(),
         "StateCode": $("#state_0").val(),
-        "CountryCode": $("#country_0").val(),
-        "StateCode": $("#state_0").val()
+        "CountryCode": $("#country_0").val()
     };
 
     if ($("#toAdd").children().length > 0) {
@@ -259,8 +258,7 @@ function serialize() {
             "City": $("#city_1").val(),
             "Zip": $("#zip_1").val(),
             "StateCode": $("#state_1").val(),
-            "CountryCode": $("#country_1").val(),
-            "StateCode": $("#state_1").val()
+            "CountryCode": $("#country_1").val()
         };
     }
 
@@ -334,7 +332,7 @@ function updateFromZip(num) {
                 $("#city_" + num).val(response.places[0]["place name"]);
                 if ($("#city_" + num).val()) { setValid("#city_" + num); }
 
-                if (country == "US") {
+                if (country === "US") {
                     $("#state_" + num).val(response.places[0]["state abbreviation"]);
                     setValid("#state_" + num);
                 }

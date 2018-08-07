@@ -155,8 +155,9 @@
     <Content Include="gulpfile.js" />
     <Content Include="pages\contact.html" />
     <Content Include="pages\create.html" />
-    <Content Include="pages\view.html" />
     <Content Include="pages\dashboard.html" />
+    <Content Include="pages\view.html" />
+    <Content Include="pages\about.html" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -319,6 +320,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Styles\css\main.css" />
+    <Content Include="Styles\scss\compiled.css" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />

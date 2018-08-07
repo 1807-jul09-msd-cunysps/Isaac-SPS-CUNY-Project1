@@ -4,6 +4,13 @@
     <meta charset="utf-8" />
     <title>Robodex</title>
     <link href="../Styles/css/main.css" rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -11,16 +18,16 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a href="./dashboard.html" class="nav-link">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="./view.html" class="nav-link">View Contacts</a>
+                    <a href="./create.html" class="nav-link">Create Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a href="./create.html" class="nav-link">Create Contact</a>
+                    <a href="./about.html" class="nav-link">About Me</a>
                 </li>
             </ul>
         </div>
@@ -32,57 +39,11 @@
         </ul>
     </nav>
     <div class="container">
-        <div id="content">
-            <section class="personal-info">
-                <div class="name label">
-                    <div>Isaac Steiner</div>
-                </div>
-                <div class="education label">
-                    <dl>
-                        <dt>
-                            SUNY Geneseo
-                        </dt>
-                        <dd>
-                            BSc - Communicative Disorders and Sciences
-                        </dd>
-                        <dt>
-                            Harvard University Extension School
-                        </dt>
-                        <dd>
-                            Master - Information Systems Management
-                        </dd>
-                    </dl>
-                </div>
-                <div class="work-experience label">
-                    <dl>
-                        <dt>
-                            DicomSec
-                        </dt>
-                        <dd>
-                            CoFounder
-                        </dd>
-                        <dt>
-                            The Hudson Center for Health Equity and Quality
-                        </dt>
-                        <dd>
-                            Health Home Administrative Coordinator
-                        </dd>
-                        <dt>
-                            Hudson Health Plan
-                        </dt>
-                        <dd>
-                            Junior Data Analyst
-                        </dd>
-                    </dl>
-                </div>
-            </section>
-            <section class="video">
-                <video preload="auto" autoplay="autoplay" loop="loop">
-                    <source src="//i.imgur.com/Zgm8smB.webm" type="video/webm" />
-                </video>
-            </section>
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center welcome">Welcome to RoboDex!</h1>
+            </div>
         </div>
-        <footer>&copy; 2018</footer>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"

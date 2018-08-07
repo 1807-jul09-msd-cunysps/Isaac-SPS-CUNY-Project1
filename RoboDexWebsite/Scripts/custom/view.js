@@ -4,7 +4,7 @@
 
 function getContacts() {
     $.get({
-        url: "http://robodex.azurewebsites.net/api/api/Contact",
+        url: "http://robodex.azurewebsites.net/api/Contact",
         success: function (response) {
             populateContacts(response);
         }

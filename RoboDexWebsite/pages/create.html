@@ -4,7 +4,14 @@
     <meta charset="utf-8" />
     <title>Robodex - Create</title>
     <link href="../Styles/css/main.css" rel="stylesheet" />
-    </head>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+</head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="./dashboard.html">RoboDex</a>
@@ -16,11 +23,11 @@
                 <li class="nav-item">
                     <a href="./dashboard.html" class="nav-link">Home<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a href="./view.html" class="nav-link">View Contacts</a>
-                </li>
                 <li class="nav-item active">
                     <a href="./create.html" class="nav-link">Create Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./about.html" class="nav-link">About Me</a>
                 </li>
             </ul>
         </div>
@@ -360,6 +367,12 @@
                                     
                                 </div>
                                 <div class="col-6">
+                                    <label for="zip_0" id="label_zip_0">Zip</label>
+                                    <div class="input-group">
+                                        <input type="text" required id="zip_0" name="zip_0" class="form-control zip" />
+                                        <div class="invalid-feedback">That ZIP wasn't in a valid format...</div>
+                                    </div>
+
                                     <label for="state_0" id="label_state_0">State</label>
                                     <div class="input-group">
                                         <select id="state_0" required name="state_0" class="form-control bfh-states state" data-country="US"></select>
@@ -371,14 +384,6 @@
                                         <input type="text" required id="city_0" name="city_0" class="form-control city">
                                         <div class="invalid-feedback">Wait...you have to tell us what city you live in.</div>
                                     </div>
-                                    
-
-                                    <label for="zip_0" id="label_zip_0">Zip</label>
-                                    <div class="input-group">
-                                        <input type="text" required id="zip_0" name="zip_0" class="form-control zip" />
-                                        <div class="invalid-feedback">That ZIP wasn't in a valid format...</div>
-                                    </div>
-                                    
                                 </div>
                             </div>
                             <div class="row">
@@ -432,7 +437,7 @@
                                 <div class="col-3">
                                     <label for="ext">Extension</label>
                                     <div class="input-group">
-                                        <input type="text" required id="ext" name="ext" class="form-control" />
+                                        <input type="text" id="ext" name="ext" class="form-control" />
                                         <div class="invalid-feedback">I wanna call you at work...</div>
                                     </div>
                                     

@@ -99,7 +99,7 @@ function incrementIDs() {
 
 function require(ele) {
     if ($(ele).attr("id") !== "ext") {
-        if ($(ele).val() === 0) {
+        if ($(ele).val() === 0 || $(ele).val() === "" || $(ele).val().length === 0) {
             setInvalid(ele);
         }
         else {
