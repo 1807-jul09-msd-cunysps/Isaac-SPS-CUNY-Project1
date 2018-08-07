@@ -108,7 +108,7 @@ function require(ele) {
     }
 }
 
-$("input:not(#perm)").on("blur", function () {
+$("input:not(#perm):not(.address2)").on("blur", function () {
     require(this);
 });
 
@@ -166,6 +166,17 @@ $(".address1").on("blur"), function () {
         setInvalid(this);
     }
 };
+
+if ($("#message")) {
+    $("#message").on("blur", function () {
+        if ($(this).val().length < 10) {
+            setInvalid(this);
+        }
+        else {
+            setValid(this);
+        }
+    });
+}
 
 function setValid(ele) {
     $(ele).removeClass("is-invalid");
