@@ -33,8 +33,8 @@ gulp.task("css", ["sass"], function () {
 gulp.task("pre-js", function () {
     return gulp.src(
         [
-        './Scripts/custom/pre.js',
-        './Content/Libraries/FormHelper/dist/js/bootstrap-formhelpers.js'
+            './Scripts/custom/pre.js',
+            './Content/Libraries/FormHelper/dist/js/bootstrap-formhelpers.js'
         ])
         .pipe(concat('main.js'))
         .pipe(gulp.dest('./Scripts/custom/concat/'));

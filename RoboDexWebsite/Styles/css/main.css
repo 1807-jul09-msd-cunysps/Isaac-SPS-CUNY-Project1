@@ -6340,6 +6340,8 @@ body.dark {
   body.dark #theme:hover {
     opacity: .7;
     color: lightgray; }
+  body.dark nav.navbar {
+    background-color: #333333 !important; }
 
 body.light #theme {
   background-color: #f8f8f2;
