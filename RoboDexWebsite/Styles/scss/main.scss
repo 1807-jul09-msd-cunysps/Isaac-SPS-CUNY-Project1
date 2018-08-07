@@ -32,6 +32,27 @@ body.dark {
     nav.navbar {
         background-color: #333333 !important;
     }
+
+    a.contact {
+        font-size: calc(.2em + 2vw);
+        text-decoration: none;
+        color: #cecece9c;
+        font-weight: 100;
+        margin-top: 20px;
+    }
+
+    .contact i {
+        font-size: 2em;
+        transition: all .5s ease;
+        text-align: center;
+    }
+
+    .contact i:hover {
+        opacity: .7;
+        color: #A6E22E;
+        transform: scale(1.07);
+        text-align: center;
+    }
 }
 
 body.light {
@@ -43,6 +64,29 @@ body.light {
 
     #theme:hover {
         background-color: darkgrey;
+    }
+
+    a.contact {
+        font-size: calc(.2em + 2vw);
+        text-decoration: none;
+        color: #cecece9c;
+        font-weight: 100;
+        margin-top: 20px;
+    }
+
+    .contact i {
+        font-size: 2em;
+        transition: all .5s ease;
+        text-align: center;
+        filter: invert(100%);
+    }
+
+    .contact i:hover {
+        opacity: .7;
+        color: #A6E22E;
+        transform: scale(1.07);
+        text-align: center;
+        filter: invert(100%);
     }
 }
 
@@ -93,25 +137,4 @@ body {
 
 .contact-me-icons {
     margin-top: 20px;
-}
-
-a.contact {
-    font-size: calc(.2em + 2vw);
-    text-decoration: none;
-    color: #cecece9c;
-    font-weight: 100;
-    margin-top: 20px;
-}
-
-.contact i {
-    font-size: 2em;
-    transition: all .5s ease;
-    text-align: center;
-}
-
-.contact i:hover {
-    opacity: .7;
-    color: #A6E22E;
-    transform: scale(1.07);
-    text-align: center;
 }

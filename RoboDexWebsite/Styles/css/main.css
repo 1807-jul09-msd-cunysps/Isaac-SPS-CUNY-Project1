@@ -6342,14 +6342,49 @@ body.dark {
     color: lightgray; }
   body.dark nav.navbar {
     background-color: #333333 !important; }
+  body.dark a.contact {
+    font-size: calc(.2em + 2vw);
+    text-decoration: none;
+    color: #cecece9c;
+    font-weight: 100;
+    margin-top: 20px; }
+  body.dark .contact i {
+    font-size: 2em;
+    transition: all .5s ease;
+    text-align: center; }
+  body.dark .contact i:hover {
+    opacity: .7;
+    color: #A6E22E;
+    transform: scale(1.07);
+    text-align: center; }
 
 body.light #theme {
-  background-color: #f8f8f2;
+  background-color: #cecece;
   color: #272822;
   transition: all .7s ease; }
 
 body.light #theme:hover {
   background-color: darkgrey; }
+
+body.light a.contact {
+  font-size: calc(.2em + 2vw);
+  text-decoration: none;
+  color: #cecece9c;
+  font-weight: 100;
+  margin-top: 20px; }
+
+body.light .contact i {
+  font-size: 2em;
+  transition: all .5s ease;
+  text-align: center;
+  filter: invert(100%); }
+
+body.light .contact i:hover {
+  opacity: .7;
+  color: #A6E22E;
+  transform: scale(1.07);
+  text-align: center;
+  filter: invert(100%); }
 
 body {
   font-family: Lato;
@@ -6379,24 +6414,6 @@ body {
 
 .contact-me-icons {
   margin-top: 20px; }
-
-a.contact {
-  font-size: calc(.2em + 2vw);
-  text-decoration: none;
-  color: #cecece9c;
-  font-weight: 100;
-  margin-top: 20px; }
-
-.contact i {
-  font-size: 2em;
-  transition: all .5s ease;
-  text-align: center; }
-
-.contact i:hover {
-  opacity: .7;
-  color: #A6E22E;
-  transform: scale(1.07);
-  text-align: center; }
 
 /**
 * bootstrap-formhelpers.js v2.3.0 by @vincentlamanna
