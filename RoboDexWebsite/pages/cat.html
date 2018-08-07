@@ -25,16 +25,13 @@
                 <li class="nav-item">
                     <a href="./dashboard.html" class="nav-link">Home<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
-                    <a href="#" class="nav-link">View Contacts</a>
-                </li>
                 <li class="nav-item">
                     <a href="./create.html" class="nav-link">Create Contact</a>
                 </li>
                 <li class="nav-item">
                     <a href="./about.html" class="nav-link">About Me</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a href="./cat.html" class="nav-link">Cat</a>
                 </li>
             </ul>
@@ -50,28 +47,18 @@
         </div>
     </nav>
     <div class="container">
-        <div class="row" id="card-container">
-            <div class="col-4" id="card-template">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">
-                            <span class="firstName">Sally</span><span class="lastName">Ortiz</span>
-                        </h3>
-                        <div class="address1">
-                            <span class="houseNum">4858</span>
-                            <span class="street">Main Street</span>
-                        </div>
-                        <div class="address2">
-                            <span class="city">Poughkeepsie</span>
-                            <!--<span class="stateName">New York</span>-->
-                            <span class="stateCode">NY</span>
-                            <span class="zip">10566</span>
-                        </div>
-                        <div class="address3 country">
-                            <span class="country">United States</span>
-                        </div>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col">
+                <h3 class="text-center">
+                    Cat
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <video preload="auto" autoplay="autoplay" loop="loop" class="cat">
+                    <source src="//i.imgur.com/Zgm8smB.webm" type="video/webm" />
+                </video>
             </div>
         </div>
     </div>
@@ -85,7 +72,6 @@
             crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="../Scripts/custom/concat/main.js" type="text/javascript"></script>
-    <script src="../Scripts/custom/view.js"></script>
     <!--<script src="../Scripts/custom/concat/post.js" type="text/javascript"></script>-->
 </body>
 </html>
