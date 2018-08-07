@@ -7,6 +7,7 @@ Click here to learn more. https://go.microsoft.com/fwlink/?LinkId=518007
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
 
 gulp.task('default', function () {
     gulp.start("css");
@@ -15,7 +16,7 @@ gulp.task('default', function () {
 
 gulp.task("sass", function () {
     return gulp.src('./Styles/scss/main.scss')
-        .pipe(sass())
+        .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(concat('compiled.css'))
         .pipe(gulp.dest('./Styles/scss/'));
 });
@@ -37,6 +38,7 @@ gulp.task("pre-js", function () {
             './Content/Libraries/FormHelper/dist/js/bootstrap-formhelpers.js'
         ])
         .pipe(concat('main.js'))
+        .pipe(uglify())
         .pipe(gulp.dest('./Scripts/custom/concat/'));
 });
 
