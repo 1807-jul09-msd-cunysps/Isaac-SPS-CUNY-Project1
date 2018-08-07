@@ -98,12 +98,26 @@ function incrementIDs() {
 }
 
 function require(ele) {
-    if ($(ele).attr("id") !== "ext") {
+    if ($(ele).attr("id") !== "ext" && !$(ele).hasClass("state")) {
         if ($(ele).val() === 0 || $(ele).val() === "" || $(ele).val().length === 0) {
             setInvalid(ele);
         }
         else {
             setValid(ele);
+        }
+
+        if ($("#state_0").val() == "" && $("#country_0").val() == 840) {
+            setInvalid("#state_0");
+        }
+        else {
+            setValid("#state_0");
+        }
+
+        if ($("#state_1").val() == "" && $("#country_1").val() == 840) {
+            setInvalid("#state_1");
+        }
+        else {
+            setValid("#state_1");
         }
     }
 }
@@ -117,7 +131,11 @@ $("#FirstName, #LastName").on("blur", function () {
     if ($(this).val().length === 0) {
         setInvalid(this);
     }
-    else if ($("#FirstName").val().toUpperCase() === $("#LastName").val().toUpperCase()) {
+    else {
+        setValid(this);
+    }
+
+    if ($("#FirstName").val().toUpperCase() === $("#LastName").val().toUpperCase()) {
         setInvalid("#FirstName");
         setInvalid("#LastName");
     }
@@ -252,7 +270,7 @@ function serialize() {
         "HouseNum": houseNum,
         "City": $("#city_0").val(),
         "Zip": $("#zip_0").val(),
-        "StateCode": $("#state_0").val(),
+        "StateCode": ($("#state_0").val() ? $("#state_0").val() : "NA"),
         "CountryCode": $("#country_0").val()
     };
 
@@ -268,7 +286,7 @@ function serialize() {
             "HouseNum": houseNum,
             "City": $("#city_1").val(),
             "Zip": $("#zip_1").val(),
-            "StateCode": $("#state_1").val(),
+            "StateCode": ($("#state_1").val() ? $("#state_1").val() : "NA"),
             "CountryCode": $("#country_1").val()
         };
     }
